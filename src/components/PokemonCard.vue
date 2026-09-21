@@ -81,7 +81,6 @@ onMounted(() => {
     box-shadow 0.15s ease;
 }
 
-/* il colore del tipo entra appena arrivano i dati */
 .card[data-ready='true'] {
   background: color-mix(in oklab, var(--tone) 26%, var(--lcd-card));
 }
@@ -138,7 +137,6 @@ onMounted(() => {
   aspect-ratio: 1;
 }
 
-/* disco colorato dietro il Pokémon */
 .card__stage::before {
   content: '';
   position: absolute;

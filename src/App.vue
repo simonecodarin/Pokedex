@@ -78,7 +78,6 @@ const message = computed(() => {
   }
 }
 
-/* ------------------------------- Lente ------------------------------- */
 .lens {
   position: relative;
   flex: none;
@@ -148,7 +147,6 @@ const message = computed(() => {
   }
 }
 
-/* ------------------------------ Titolo ------------------------------- */
 .hero__text {
   min-width: 0;
 }
@@ -160,7 +158,6 @@ const message = computed(() => {
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.01em;
-  /* effetto "serigrafia" sul guscio */
   text-shadow:
     0 3px 0 var(--shell-dark),
     0 6px 0 rgb(0 0 0 / 0.18);
@@ -173,7 +170,6 @@ const message = computed(() => {
   font-weight: 500;
 }
 
-/* -------------------------------- LED --------------------------------- */
 .leds {
   display: flex;
   gap: 0.45rem;
@@ -221,7 +217,6 @@ const message = computed(() => {
   }
 }
 
-/* ------------------------------ Contenuto ----------------------------- */
 .wrap {
   max-width: 80rem;
   margin: 0 auto;
@@ -270,7 +265,6 @@ const message = computed(() => {
   --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
-/* "html body" ha più peso di un semplice "body": vince sugli stili del vecchio main.css */
 html body {
   margin: 0;
   min-height: 100vh;
@@ -280,10 +274,7 @@ html body {
   -webkit-font-smoothing: antialiased;
 }
 
-/*
-  Un solo font per tutta l'app, anche se il vecchio main.css ne forza un altro con "*".
-  Le icone (.pi) restano escluse, altrimenti perderebbero il loro font.
-*/
+
 :where(.shell, .modal) *:not(.pi) {
   font-family: var(--font-body);
 }
@@ -292,7 +283,6 @@ html body {
   font-family: var(--font-display);
 }
 
-/* ---- Elementi condivisi: pulsanti "a tasto" e chip ---- */
 .pk-btn {
   display: inline-flex;
   align-items: center;

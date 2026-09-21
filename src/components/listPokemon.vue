@@ -21,14 +21,13 @@ const sheetOpen = ref(false)
 const typeLoading = ref(false)
 const input = ref<HTMLInputElement | null>(null)
 
-/* Su schermi stretti il campo è piccolo: placeholder più corto */
+
 const mq = window.matchMedia("(min-width: 40rem)")
 const wide = ref(mq.matches)
 const placeholder = computed(() => (wide.value ? 'Cerca per nome o numero' : 'Nome o numero'))
 const onMq = (e: MediaQueryListEvent) => (wide.value = e.matches)
 mq.addEventListener('change', onMq)
 
-/* ----------------------------- Filtri ------------------------------ */
 const filtered = computed(() => {
   const q = search.value.trim().toLowerCase().replace(/^#/, '').replace(/\s+/g, '-')
   const range = GENERATIONS.find((g) => g.id === generation.value)
@@ -78,7 +77,6 @@ function pickRandom() {
   openId.value = pool[Math.floor(Math.random() * pool.length)]!.id
 }
 
-/* --------------------- Caricamento progressivo --------------------- */
 const sentinel = ref<HTMLElement | null>(null)
 let observer: IntersectionObserver | null = null
 
@@ -87,7 +85,6 @@ watch(sentinel, (el, previous) => {
   if (el) observer?.observe(el)
 })
 
-/* ------------------------ Scorciatoia "/" -------------------------- */
 function onSlash(e: KeyboardEvent) {
   if (e.key !== '/' || openId.value !== null) return
   const el = e.target as HTMLElement | null
@@ -262,7 +259,6 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-/* Cornice scura + display LCD, come lo schermo di un Pokédex */
 .screen {
   padding: clamp(0.4rem, 1.6vw, 0.9rem);
   border-radius: 1.75rem;
@@ -278,7 +274,6 @@ onBeforeUnmount(() => {
   box-shadow: inset 0 6px 18px rgb(27 31 42 / 0.14);
 }
 
-/* ------------------------------ Toolbar ------------------------------ */
 .toolbar {
   position: sticky;
   top: 0.6rem;
@@ -319,7 +314,6 @@ onBeforeUnmount(() => {
   appearance: none;
 }
 
-/* spazio per la "x" solo quando c'è del testo */
 .search__input:not(:placeholder-shown) {
   padding-right: 2.75rem;
 }
@@ -374,7 +368,6 @@ onBeforeUnmount(() => {
   }
 }
 
-/* ---------------------- Pulsanti della barra ---------------------- */
 .toolbar .pk-btn {
   position: relative;
 }
@@ -383,7 +376,6 @@ onBeforeUnmount(() => {
   display: none;
 }
 
-/* su mobile il contatore sta "appeso" all'angolo, così il campo di ricerca resta largo */
 .btn__count {
   position: absolute;
   top: -0.5rem;
@@ -411,7 +403,6 @@ onBeforeUnmount(() => {
   }
 }
 
-/* ------------------------------- Filtri ------------------------------- */
 .filters-desktop {
   display: none;
   margin-top: 1rem;
@@ -463,7 +454,6 @@ onBeforeUnmount(() => {
   opacity: 0.75;
 }
 
-/* ------------------------------- Griglia ------------------------------ */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -513,7 +503,6 @@ onBeforeUnmount(() => {
   padding: 1.5rem 0 0.5rem;
 }
 
-/* --------------------------- Errore / vuoto --------------------------- */
 .state {
   display: grid;
   justify-items: center;
