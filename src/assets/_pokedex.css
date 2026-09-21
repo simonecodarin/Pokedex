@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+
+/*
+  Palette ispirata al Pokédex "fisico":
+  guscio rosso, bordo/schermo scuro (ink), display LCD verde-grigio, lente blu.
+*/
+:root {
+  --shell: #d8321f;
+  --shell-hi: #e8442e;
+  --shell-dark: #a92112;
+  --ink: #1b1f2a;
+  --lcd: #e3ead8;
+  --lcd-card: #f4f7ee;
+  --lcd-line: #b7c2a8;
+  --lens: #2cb5f5;
+  --led-red: #ff4b3e;
+  --led-yellow: #ffd23f;
+  --led-green: #3ddc84;
+
+  --font-display: 'Chakra Petch', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--shell);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+:focus-visible {
+  outline: 3px solid var(--lens);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
